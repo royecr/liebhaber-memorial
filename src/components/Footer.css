@@ -1,0 +1,107 @@
+/* ========================================
+   Footer
+   ======================================== */
+.site-footer {
+  background: var(--color-brown-dark);
+  color: var(--color-gold-light);
+  padding-top: 3rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 3rem;
+  align-items: start;
+  padding-bottom: 2.5rem;
+}
+
+/* Brand */
+.footer-name {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  margin-bottom: 0.4rem;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: var(--color-sepia-light);
+  line-height: 1.5;
+  max-width: 240px;
+}
+
+/* Nav */
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  font-size: 0.9rem;
+  color: var(--color-sepia-light);
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: var(--color-gold-light);
+}
+
+/* Candle CTA */
+.footer-candle {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-candle-btn {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.25rem;
+  white-space: nowrap;
+  border: 1px solid rgba(200, 168, 107, 0.4);
+}
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(200, 168, 107, 0.2);
+  padding: 1rem 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copy,
+.footer-privacy {
+  font-size: 0.78rem;
+  color: var(--color-sepia-light);
+  margin-bottom: 0;
+}
+
+.footer-email {
+  color: var(--color-gold);
+  transition: color 0.15s;
+}
+
+.footer-email:hover {
+  color: var(--color-gold-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
