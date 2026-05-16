@@ -7,12 +7,12 @@
   --color-cream-dark: #EDE4CF;
   --color-brown-dark: #3D2310;
   --color-brown-mid: #7B4A22;
-  --color-gold: #C8A86B;
+  --color-gold: #C9A84C;
   --color-gold-dark: #A8893A;
   --color-gold-light: #E8D5A3;
   --color-sepia: #8B7355;
   --color-sepia-light: #BBA98A;
-  --color-navy: #1B2B4A;
+  --color-navy: #1A2744;
   --color-navy-mid: #243660;
   --color-navy-light: #3A5080;
   --color-white: #FFFDF8;
@@ -20,11 +20,11 @@
   --color-text: #3D2310;
   --color-text-light: #6B4A30;
   --shadow-sm: 0 2px 8px rgba(61, 35, 16, 0.08);
-  --shadow-md: 0 4px 20px rgba(61, 35, 16, 0.12);
-  --shadow-lg: 0 8px 40px rgba(61, 35, 16, 0.16);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --shadow-md: 0 4px 20px rgba(61, 35, 16, 0.15);
+  --shadow-lg: 0 8px 40px rgba(61, 35, 16, 0.20);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
   --font-heading: 'Frank Ruhl Libre', Georgia, serif;
   --font-body: 'Heebo', Arial, sans-serif;
 }
