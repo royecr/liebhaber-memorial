@@ -1,0 +1,56 @@
+/* ========================================
+   Candle CTA Section
+   ======================================== */
+.candle-cta {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.candle-cta-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.candle-cta-flames {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.candle-flame {
+  font-size: 1.8rem;
+  animation: flicker 2.5s ease-in-out infinite alternate;
+}
+
+.candle-flame--big {
+  font-size: 2.6rem;
+  animation-duration: 2s;
+  animation-delay: -0.5s;
+}
+
+@keyframes flicker {
+  0%   { opacity: 1;    transform: scale(1);   }
+  40%  { opacity: 0.85; transform: scale(0.97) translateY(-1px); }
+  100% { opacity: 0.95; transform: scale(1.03) translateY(-2px); }
+}
+
+.candle-cta-heading {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 0.75rem;
+  color: var(--color-gold-light);
+}
+
+.candle-cta-text {
+  color: #C8B896;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.candle-cta-btn {
+  font-size: 1.05rem;
+  padding: 0.85rem 2rem;
+  border: 1.5px solid rgba(200, 168, 107, 0.5);
+}
