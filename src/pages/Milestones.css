@@ -1,0 +1,164 @@
+/* ========================================
+   Milestones Page — Shared Timeline
+   ======================================== */
+.milestones-section {
+  padding: 4rem 0 5rem;
+}
+
+.milestones-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Center spine */
+.milestones-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+/* Item base */
+.ms-item {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  gap: 0;
+  margin-bottom: 2.5rem;
+  align-items: start;
+}
+
+/* Center column — dot + line */
+.ms-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 0.5rem;
+}
+
+.ms-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-cream-dark);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.ms-item--highlight .ms-dot {
+  background: var(--color-gold);
+  border-color: var(--color-gold-dark);
+  font-size: 1.25rem;
+}
+
+.ms-line {
+  width: 2px;
+  flex: 1;
+  min-height: 24px;
+  background: var(--color-border);
+}
+
+/* Card — alternates sides */
+.ms-card {
+  padding: 1.25rem 1.5rem;
+  max-width: 340px;
+}
+
+/* Right items: card in col 1, empty in col 3 */
+.ms-item--right .ms-card {
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 1.5rem;
+}
+
+/* Left items: empty in col 1, card in col 3 */
+.ms-item--left {
+  direction: ltr;
+}
+
+.ms-item--left .ms-card {
+  margin-left: 1.5rem;
+}
+
+/* Both/centered items */
+.ms-item--both {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.ms-item--both .ms-center {
+  display: none;
+}
+
+.ms-item--both .ms-card {
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+}
+
+.ms-item--both.ms-item--highlight .ms-card {
+  border-color: var(--color-gold);
+  background: linear-gradient(135deg, #fffdf8 80%, #f8f0e0 100%);
+}
+
+.ms-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.ms-title {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.ms-text {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .milestones-timeline::before { right: 22px; transform: none; }
+
+  .ms-item,
+  .ms-item--left,
+  .ms-item--right,
+  .ms-item--both {
+    grid-template-columns: 44px 1fr;
+    direction: rtl;
+  }
+
+  .ms-item--left { direction: rtl; }
+
+  .ms-center { grid-column: 1; grid-row: 1; }
+
+  .ms-card,
+  .ms-item--right .ms-card,
+  .ms-item--left .ms-card,
+  .ms-item--both .ms-card {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 100%;
+    margin: 0;
+    text-align: start;
+  }
+
+  .ms-item--both .ms-center { display: flex; }
+}
