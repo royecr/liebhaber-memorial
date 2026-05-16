@@ -1,0 +1,209 @@
+/* ========================================
+   Family Tree Page
+   ======================================== */
+.family-intro {
+  padding: 3rem 0 0;
+  background: var(--color-white);
+}
+
+.family-intro-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.family-desc {
+  color: var(--color-text-light);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Tree section */
+.family-tree-section {
+  padding: 4rem 0 5rem;
+  background: var(--color-white);
+}
+
+/* Generation rows */
+.ft-gen {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.ft-gen-1 {
+  margin-bottom: 0.5rem;
+}
+
+/* Connectors */
+.ft-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.25rem 0;
+}
+
+.ft-line-v {
+  width: 2px;
+  height: 24px;
+  background: var(--color-border);
+}
+
+.ft-line-h {
+  width: 60%;
+  height: 2px;
+  background: var(--color-border);
+}
+
+.ft-connector-small {
+  display: flex;
+  justify-content: center;
+  margin: 0.25rem 0;
+}
+
+.ft-line-v-sm {
+  width: 2px;
+  height: 20px;
+  background: var(--color-border);
+}
+
+/* Branches */
+.ft-gen-2 {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.ft-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 460px;
+  width: 100%;
+}
+
+/* Cards */
+.ft-root-card {
+  padding: 1.5rem 2.5rem;
+  text-align: center;
+  border: 2px solid var(--color-gold-light);
+  min-width: 280px;
+}
+
+.ft-root-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ft-person-card {
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  border-color: var(--color-gold-light);
+}
+
+.ft-person-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.ft-name {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.ft-years {
+  font-size: 0.78rem;
+  color: var(--color-sepia);
+  margin-bottom: 0;
+}
+
+.ft-note {
+  font-size: 0.75rem;
+  color: var(--color-sepia);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.ft-married {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-bottom: 0;
+}
+
+/* Grandchildren */
+.ft-grandchildren {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.ft-gc-branch {
+  flex: 1;
+  min-width: 130px;
+  max-width: 160px;
+}
+
+.ft-gc-card {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.ft-gc-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.ft-gc-name {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.ft-gc-spouse {
+  font-size: 0.75rem;
+  color: var(--color-sepia);
+  margin-bottom: 0.5rem;
+}
+
+.ft-gg-list {
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.5rem;
+  text-align: right;
+}
+
+.ft-gg-label {
+  font-size: 0.72rem;
+  color: var(--color-sepia);
+  margin-bottom: 0.2rem;
+}
+
+.ft-gg-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ft-gg-list ul li {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  padding: 0.1rem 0;
+}
+
+.ft-gg-list ul li::before {
+  content: '• ';
+  color: var(--color-gold);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .ft-gen-2 { flex-direction: column; align-items: center; }
+  .ft-branch { max-width: 100%; }
+  .ft-line-h { width: 30%; }
+}
