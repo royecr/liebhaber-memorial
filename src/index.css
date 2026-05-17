@@ -364,8 +364,50 @@ p:last-child { margin-bottom: 0; }
    ======================================== */
 .page-hero {
   padding: 5rem 0 4rem;
-  background: linear-gradient(160deg, var(--color-cream) 60%, var(--color-cream-dark) 100%);
-  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(160deg, #1a2744 0%, #243660 60%, #1e3060 100%);
+  border-bottom: 3px solid var(--color-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle texture overlay */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* Force light text on dark hero background */
+.page-hero h1,
+.page-hero h2,
+.page-hero h3 {
+  color: #f0e6cc;
+}
+
+.page-hero .section-title {
+  color: #f0e6cc;
+}
+
+.page-hero .section-subtitle {
+  color: rgba(240,230,204,0.75);
+}
+
+.page-hero .page-hero-subtitle {
+  color: rgba(240,230,204,0.78);
+  border-right-color: var(--color-gold);
+}
+
+.page-hero .section-ornament::before,
+.page-hero .section-ornament::after {
+  background: rgba(201,168,76,0.55);
+}
+
+.page-hero .section-ornament-icon {
+  color: var(--color-gold);
 }
 
 .page-hero-inner {
@@ -373,6 +415,8 @@ p:last-child { margin-bottom: 0; }
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -380,40 +424,4 @@ p:last-child { margin-bottom: 0; }
   .page-hero { padding: 3rem 0 2.5rem; }
 }
 
-/* ========================================
-   Skip navigation (נגישות)
-   ======================================== */
-.skip-nav {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: var(--color-navy);
-  color: white;
-  padding: 0.5rem 1rem;
-  z-index: 10000;
-  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-}
-
-.skip-nav:focus {
-  top: 0;
-}
-
-/* ========================================
-   אנימציות עדינות
-   ======================================== */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-up {
-  animation: fadeUp 0.5s ease both;
-}
-
-/* ========================================
-   הדפסה
-   ======================================== */
-@media print {
-  header, footer, .btn-primary, .btn-outline, .btn-navy { display: none; }
-  body { background: white; color: black; }
-}
+/* ========
