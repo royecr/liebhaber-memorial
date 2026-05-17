@@ -3,6 +3,8 @@ import { SITE, HOME } from '../content/content.js'
 import CandleSection from '../components/CandleSection.jsx'
 import './Home.css'
 
+const PHOTO_BASE = 'https://bsvmwnlyxetyjdppejmh.supabase.co/storage/v1/object/public/photos/'
+
 /* ── SVG decorators ── */
 const LeafOrnament = ({ className = '' }) => (
   <svg className={`leaf-ornament ${className}`} viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -33,21 +35,14 @@ const CornerLeaf = ({ corner = 'tl' }) => (
   </svg>
 )
 
-/* Family members for the stats section */
-const FAMILY_NAMES = {
-  daughters: ['דורית', 'ציפי'],
-  grandchildren: ['רועי', 'נעמה', 'שני', 'נטלי', 'נועה'],
-  greatgrandchildren: ['אפרת', 'טמיר', 'קרן', 'גאיה', 'נועם', 'רז', 'עידו', 'שירה', 'יואב'],
-}
-
-/* Gallery strip images (CSS placeholders - photos to be uploaded) */
-const GALLERY_ITEMS = [
-  { id: 1, label: 'בתיה צעירה', category: 'batya' },
-  { id: 2, label: 'אברהם', category: 'avraham' },
-  { id: 3, label: 'החתונה', category: 'family' },
-  { id: 4, label: 'העלייה לארץ', category: 'journey' },
-  { id: 5, label: 'המשפחה', category: 'family' },
-  { id: 6, label: 'רגעים יקרים', category: 'family' },
+/* Photo strip for gallery preview */
+const GALLERY_STRIP = [
+  { file: 'batya-as-girl.jpeg',      caption: 'בתיה בנעוריה' },
+  { file: 'avraham-sailor.jpeg',     caption: 'אברהם — ימאי' },
+  { file: 'family-portrait.jpeg',    caption: 'דיוקן משפחתי' },
+  { file: 'batya-purim-1.jpeg',      caption: 'בתיה בפורים' },
+  { file: 'family-gathering.jpeg',   caption: 'מפגש משפחתי' },
+  { file: 'dorit-tzipi-young.jpeg',  caption: 'דורית וציפי' },
 ]
 
 export default function Home() {
@@ -57,25 +52,22 @@ export default function Home() {
           HERO — 2-column layout
           ═══════════════════════════════════ */}
       <section className="home-hero" aria-label="ברוכים הבאים">
-        {/* Botanical background decoration */}
         <div className="hero-bg-ornament hero-bg-ornament--tr" aria-hidden="true">
           <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
             <path d="M180,10 Q80,80 120,180 Q160,270 100,290" stroke="#c9a84c" strokeWidth="1" fill="none" opacity="0.25"/>
             <path d="M160,40 Q190,60 170,90 Q140,70 160,40Z" fill="#c9a84c" opacity="0.15"/>
             <path d="M140,100 Q170,115 155,145 Q125,130 140,100Z" fill="#c9a84c" opacity="0.15"/>
-            <path d="M130,170 Q160,180 148,210 Q118,200 130,170Z" fill="#c9a84c" opacity="0.12"/>
           </svg>
         </div>
         <div className="hero-bg-ornament hero-bg-ornament--bl" aria-hidden="true">
           <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
             <path d="M20,290 Q120,220 80,120 Q40,30 100,10" stroke="#c9a84c" strokeWidth="1" fill="none" opacity="0.25"/>
             <path d="M40,260 Q10,240 30,210 Q60,230 40,260Z" fill="#c9a84c" opacity="0.15"/>
-            <path d="M60,200 Q30,185 45,155 Q75,170 60,200Z" fill="#c9a84c" opacity="0.15"/>
           </svg>
         </div>
 
         <div className="container home-hero-inner">
-          {/* LEFT: Vintage photo frame */}
+          {/* LEFT: Real family photo */}
           <div className="home-hero-image-col fade-up">
             <div className="hero-photo-frame">
               <CornerLeaf corner="tl" />
@@ -83,13 +75,12 @@ export default function Home() {
               <CornerLeaf corner="bl" />
               <CornerLeaf corner="br" />
               <div className="hero-photo-inner">
-                <div className="hero-photo-placeholder">
-                  <div className="hero-photo-texture" />
-                  <div className="hero-photo-overlay-text">
-                    <span className="hero-photo-label">תמונת משפחה</span>
-                    <span className="hero-photo-year">~1960</span>
-                  </div>
-                </div>
+                <img
+                  src={`${PHOTO_BASE}batya-avraham-family.jpeg`}
+                  alt="בתיה ואברהם ליבהבר עם בנותיהן"
+                  className="hero-real-photo"
+                  loading="eager"
+                />
               </div>
               <div className="hero-frame-caption">בתיה ואברהם ליבהבר — ישראל</div>
             </div>
@@ -113,7 +104,6 @@ export default function Home() {
             </h1>
 
             <p className="home-hero-subtitle">{HOME.heroSubtitle}</p>
-
             <p className="home-hero-desc">{HOME.heroText}</p>
 
             <div className="home-hero-dates">
@@ -130,4 +120,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════�
+      {/* ═══════════════════════════════════
+          MAIN QUOTE
+          ═══════════════════════════════════ */}
+      <section className="home-quote-section" aria-label="ציטוט בתיה">
+        <div className="container home-quote-inner">
+          <DividerLeaves />
+          <blockquote className="home-main-quote">
+            <div className="home-quote-mark" aria-hidden="true">"</div>
+            <p className="home-quote-text">{SITE.mainQuote
