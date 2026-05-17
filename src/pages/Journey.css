@@ -122,4 +122,262 @@
 .journey-route-name {
   font-family: var(--font-heading);
   font-weight: 600;
-  font
+  font-size: 0.9rem;
+  color: var(--color-navy-mid);
+  white-space: nowrap;
+}
+
+.journey-route-connector {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.journey-route-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  opacity: 0.6;
+}
+
+.journey-route-ship {
+  font-size: 1.1rem;
+  margin: 0 0.25rem;
+}
+
+/* ────────────────────────────────────────
+   STOPS TIMELINE
+   ──────────────────────────────────────── */
+.journey-stops-section {
+  padding: 4.5rem 0 5rem;
+  background: var(--color-cream);
+}
+
+.journey-stops-timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 2.5rem auto 0;
+}
+
+/* Center vertical line */
+.journey-stops-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-border) 100%);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.journey-stop-item {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  margin-bottom: 2.5rem;
+  position: relative;
+  gap: 0;
+}
+
+/* Card goes to correct side */
+.journey-stop-item--right .journey-stop-card {
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.journey-stop-item--right .journey-stop-connector {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.journey-stop-item--left .journey-stop-card {
+  grid-column: 3;
+  grid-row: 1;
+  margin-right: auto;
+  margin-left: 2rem;
+}
+
+.journey-stop-item--left .journey-stop-connector {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.journey-stop-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.journey-stop-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 3px solid var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px var(--color-gold), var(--shadow-sm);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.journey-stop-num {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-brown-dark);
+}
+
+.journey-stop-line {
+  display: block;
+  width: 2px;
+  height: 40px;
+  background: transparent;
+}
+
+.journey-stop-card {
+  max-width: 340px;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+}
+
+.journey-stop-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.journey-stop-name {
+  font-size: 1.15rem;
+  color: var(--color-brown-dark);
+  margin-bottom: 0.4rem;
+}
+
+.journey-stop-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ────────────────────────────────────────
+   ARRIVAL SECTION
+   ──────────────────────────────────────── */
+.journey-arrival-section {
+  padding: 4.5rem 0;
+  background: linear-gradient(135deg, #1a2744 0%, #243660 100%);
+  color: white;
+}
+
+.journey-arrival-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.journey-arrival-date {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.journey-arrival-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #f0e6cc;
+  margin-bottom: 1.25rem;
+}
+
+.journey-arrival-desc {
+  color: rgba(240,230,204,0.8);
+  line-height: 1.9;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.journey-arrival-photo-wrap {
+  position: relative;
+  border: 3px solid var(--color-gold);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 6px rgba(201,168,76,0.12),
+    var(--shadow-lg);
+}
+
+.journey-arrival-photo-wrap img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  filter: sepia(20%) contrast(1.05);
+}
+
+.journey-arrival-photo-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(10,5,20,0.85));
+  color: var(--color-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+  padding: 1.5rem 0.75rem 0.75rem;
+}
+
+/* ────────────────────────────────────────
+   RESPONSIVE
+   ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .journey-story-inner { grid-template-columns: 1fr; }
+  .journey-arrival-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* Collapse timeline to single column */
+  .journey-stops-timeline::before { right: 22px; transform: none; }
+
+  .journey-stop-item,
+  .journey-stop-item--right,
+  .journey-stop-item--left {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-right: 0;
+    gap: 0;
+  }
+
+  .journey-stop-item--right .journey-stop-card,
+  .journey-stop-item--left .journey-stop-card {
+    grid-column: auto;
+    margin: 0 0 0 1.25rem;
+    max-width: 100%;
+  }
+
+  .journey-stop-item--right .journey-stop-connector,
+  .journey-stop-item--left .journey-stop-connector {
+    grid-column: auto;
+    order: -1;
+    flex-shrink: 0;
+  }
+
+  .journey-route-visual { justify-content: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .journey-route-line { width: 20px; }
+  .journey-stop-card { padding: 1rem 1.1rem; }
+}
