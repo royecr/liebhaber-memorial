@@ -38,11 +38,11 @@ const CornerLeaf = ({ corner = 'tl' }) => (
 /* Photo strip for gallery preview */
 const GALLERY_STRIP = [
   { file: 'batya-as-girl.jpeg',      caption: 'בתיה בנעוריה' },
-  { file: 'avraham-sailor.jpeg',     caption: 'אברהם — ימאי' },
-  { file: 'family-portrait.jpeg',    caption: 'דיוקן משפחתי' },
-  { file: 'batya-purim-1.jpeg',      caption: 'בתיה בפורים' },
-  { file: 'family-gathering.jpeg',   caption: 'מפגש משפחתי' },
-  { file: 'dorit-tzipi-young.jpeg',  caption: 'דורית וציפי' },
+  { file: 'family-portrait.jpeg',    caption: 'מהאלבום המשפחתי' },
+  { file: 'batya-teen.jpeg',         caption: 'בתיה בגיל הנעורים' },
+  { file: 'batya-purim-1.jpeg',      caption: 'מהאלבום המשפחתי' },
+  { file: 'dorit-tzipi-young.jpeg',  caption: 'המשפחה' },
+  { file: 'batya-young-woman.jpeg',  caption: 'בתיה כאישה צעירה' },
 ]
 
 export default function Home() {
@@ -76,7 +76,7 @@ export default function Home() {
               <CornerLeaf corner="br" />
               <div className="hero-photo-inner">
                 <img
-                  src={`${PHOTO_BASE}batya-avraham-family.jpeg`}
+                  src={`${PHOTO_BASE}dorit-tzipi-young.jpeg`}
                   alt="בתיה ואברהם ליבהבר עם בנותיהן"
                   className="hero-real-photo"
                   loading="eager"
@@ -128,4 +128,4 @@ export default function Home() {
           <DividerLeaves />
           <blockquote className="home-main-quote">
             <div className="home-quote-mark" aria-hidden="true">"</div>
-            <p className="home-quote-text">{SITE.mainQuote
+            <p className="home-quote-t
