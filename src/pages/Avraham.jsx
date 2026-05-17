@@ -7,7 +7,7 @@ const PHOTO_BASE = 'https://bsvmwnlyxetyjdppejmh.supabase.co/storage/v1/object/p
 const AVRAHAM_PHOTOS = [
   { file: 'family-portrait.jpeg',      caption: 'אברהם ליבהבר' },
   { file: 'dorit-tzipi-young.jpeg',    caption: 'אברהם ובתיה עם בנותיהן' },
-  { file: 'batya-purim-2.jpeg',        caption: 'מהאלבום המשפחתי' },
+  { file: 'family-old.jpeg',            caption: 'מהאלבום המשפחתי' },
 ]
 
 export default function Avraham() {
