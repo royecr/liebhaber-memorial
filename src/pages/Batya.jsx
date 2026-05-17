@@ -77,4 +77,41 @@ export default function Batya() {
             ))}
           </div>
         </div>
- 
+      </section>
+
+      {/* Timeline */}
+      <section className="person-timeline-section" aria-label="תחנות בחייה של בתיה">
+        <div className="container">
+          <div className="section-ornament"><span className="section-ornament-icon">✦</span></div>
+          <h2 className="section-title">תחנות בחייה</h2>
+          <div className="timeline" role="list">
+            {BATYA.milestones.map((m, i) => (
+              <article
+                key={i}
+                className={`timeline-item timeline-item--${m.side}${m.warning ? ' timeline-item--sensitive' : ''}`}
+                role="listitem"
+              >
+                <div className="timeline-connector" aria-hidden="true">
+                  <span className="timeline-dot">{m.number}</span>
+                </div>
+                <div className="timeline-card card">
+                  <div className="timeline-date">{m.date}</div>
+                  <h3 className="timeline-title">{m.title}</h3>
+                  <p className="timeline-text">{m.text}</p>
+                  {m.warning && (
+                    <p className="timeline-sensitive-note">תוכן רגיש — שואה ואובדן</p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CandleSection
+        heading="הדליקו נר לזכר בתיה"
+        text="בתיה לא הייתה רק ניצולת — הייתה אמא, סבתא, ונשמה שבחרה בחיים. הדליקו נר לזכרה."
+      />
+    </>
+  )
+}
