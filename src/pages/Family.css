@@ -3,7 +3,7 @@
    ======================================== */
 .family-intro {
   padding: 3rem 0 0;
-  background: var(--color-white);
+  background: var(--color-cream-light);
 }
 
 .family-intro-inner {
@@ -21,7 +21,7 @@
 /* Tree section */
 .family-tree-section {
   padding: 4rem 0 5rem;
-  background: var(--color-white);
+  background: var(--color-cream-light);
 }
 
 /* Generation rows */
@@ -205,5 +205,4 @@
 @media (max-width: 700px) {
   .ft-gen-2 { flex-direction: column; align-items: center; }
   .ft-branch { max-width: 100%; }
-  .ft-line-h { width: 30%; }
-}
+  .ft-line-h { widt
