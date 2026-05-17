@@ -2,11 +2,16 @@ import { JOURNEY } from '../content/content.js'
 import CandleSection from '../components/CandleSection.jsx'
 import './Journey.css'
 
+const PHOTO_BASE = 'https://bsvmwnlyxetyjdppejmh.supabase.co/storage/v1/object/public/photos/'
+
+/* Icon for each stop */
+const STOP_ICONS = ['🏙️', '🏛️', '⚓', '🇮🇹', '⛵', '🏠']
+
 export default function Journey() {
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero" aria-label="המסע לארץ">
+      {/* ═══════ HERO ═══════ */}
+      <section className="journey-hero page-hero" aria-label="המסע לארץ">
         <div className="container">
           <div className="section-ornament"><span className="section-ornament-icon">⛴️</span></div>
           <h1 className="section-title">{JOURNEY.title}</h1>
@@ -14,57 +19,45 @@ export default function Journey() {
         </div>
       </section>
 
-      {/* Narrative */}
-      <section className="journey-narrative" aria-label="סיפור המסע">
-        <div className="container journey-narrative-inner">
-          <div className="journey-narrative-text">
-            <h2>המסע — בלי לטוס</h2>
+      {/* ═══════ STORY + PHOTO ═══════ */}
+      <section className="journey-story-section" aria-label="סיפור המסע">
+        <div className="container journey-story-inner">
+          <div className="journey-story-text">
+            <h2 className="journey-section-heading">המסע — בלי לטוס</h2>
             <p>{JOURNEY.description}</p>
             <p>{JOURNEY.narrative}</p>
           </div>
-          <aside className="journey-venice-box">
-            <div className="journey-venice-icon" aria-hidden="true">🇮🇹</div>
-            <h3>הסיפור מוונציה</h3>
-            <p>{JOURNEY.veniceStory}</p>
-          </aside>
-        </div>
-      </section>
-
-      {/* Map placeholder */}
-      <section className="journey-map-section" aria-label="מפת המסע">
-        <div className="container">
-          <h2 className="section-title">מפת המסע</h2>
-          <p className="section-subtitle">מאירופה לארץ ישראל — 1958</p>
-          <div className="journey-map-placeholder" role="img" aria-label="מפה סטטית של מסלול הנסיעה">
-            <div className="journey-map-inner">
-              <span aria-hidden="true">🗺️</span>
-              <p>מפת מסלול הנסיעה</p>
-              <p className="journey-map-route">וילנה → ורשה → שצ׳צ׳ין → ונציה → חיפה</p>
+          <div className="journey-story-aside">
+            <div className="journey-photo-wrap">
+              <img
+                src={`${PHOTO_BASE}family-old.jpeg`}
+                alt="תמונה היסטורית של המשפחה"
+                className="journey-main-photo"
+                loading="lazy"
+              />
+            </div>
+            <div className="journey-venice-box">
+              <div className="journey-venice-icon" aria-hidden="true">🇮🇹</div>
+              <h3>הסיפור מוונציה</h3>
+              <p>{JOURNEY.veniceStory}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stops */}
-      <section className="journey-stops" aria-label="תחנות המסע">
+      {/* ═══════ ROUTE MAP ═══════ */}
+      <section className="journey-route-section" aria-label="מסלול המסע">
         <div className="container">
-          <h2 className="section-title">תחנות המסע</h2>
-          <div className="journey-stops-grid">
-            {JOURNEY.stops.map(stop => (
-              <article key={stop.number} className="journey-stop card">
-                <div className="journey-stop-number" aria-hidden="true">{stop.number}</div>
-                <h3 className="journey-stop-name">{stop.name}</h3>
-                <p className="journey-stop-desc">{stop.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CandleSection
-        heading="המסע הסתיים — הבית התחיל"
-        text="בתיה ואברהם הגיעו לארץ וייסדו כאן בית חם ומשפחה. הדליקו נר לזכרם."
-      />
-    </>
-  )
-}
+          <h2 className="journey-section-heading text-center">מסלול המסע</h2>
+          <p className="journey-route-subtitle">מאירופה לארץ ישראל — 1958</p>
+          <div className="journey-route-visual">
+            {JOURNEY.stops.map((stop, i) => (
+              <div key={stop.number} className="journey-route-stop">
+                <div className="journey-route-icon">{STOP_ICONS[i] || '📍'}</div>
+                <div className="journey-route-name">{stop.name}</div>
+                {i < JOURNEY.stops.length - 1 && (
+                  <div className="journey-route-connector" aria-hidden="true">
+                    <span className="journey-route-line" />
+                    <span className="journey-route-ship">⛴</span>
+                  </div>
+ 
