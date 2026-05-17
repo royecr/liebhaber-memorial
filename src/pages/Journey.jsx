@@ -60,4 +60,65 @@ export default function Journey() {
                     <span className="journey-route-line" />
                     <span className="journey-route-ship">⛴</span>
                   </div>
- 
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ STOPS TIMELINE ═══════ */}
+      <section className="journey-stops-section" aria-label="תחנות המסע">
+        <div className="container">
+          <h2 className="journey-section-heading text-center">תחנות המסע</h2>
+          <div className="journey-stops-timeline">
+            {JOURNEY.stops.map((stop, i) => (
+              <article key={stop.number} className={`journey-stop-item journey-stop-item--${i % 2 === 0 ? 'right' : 'left'}`}>
+                <div className="journey-stop-connector">
+                  <div className="journey-stop-dot">
+                    <span className="journey-stop-num">{stop.number}</span>
+                  </div>
+                  <div className="journey-stop-line" aria-hidden="true" />
+                </div>
+                <div className="journey-stop-card card">
+                  <div className="journey-stop-icon" aria-hidden="true">{STOP_ICONS[i] || '📍'}</div>
+                  <h3 className="journey-stop-name">{stop.name}</h3>
+                  <p className="journey-stop-desc">{stop.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ ARRIVAL BANNER ═══════ */}
+      <section className="journey-arrival-section" aria-label="הגעה לישראל">
+        <div className="container journey-arrival-inner">
+          <div className="journey-arrival-text">
+            <div className="journey-arrival-date">25 במרץ 1958</div>
+            <h2 className="journey-arrival-title">הגעה לנמל חיפה</h2>
+            <p className="journey-arrival-desc">
+              האוניה "אנוטריה" נכנסה לנמל חיפה. בתיה ואברהם ליבהבר עמדו על הסיפון ונשמו את אוויר ישראל בפעם הראשונה.
+              לא היה להם כאן אף אחד — רק חלומות וכוח רצון עצום.
+            </p>
+          </div>
+          <div className="journey-arrival-photos">
+            <div className="journey-arrival-photo-wrap">
+              <img
+                src={`${PHOTO_BASE}dorit-tzipi-young.jpeg`}
+                alt="בתיה ואברהם ומשפחתם"
+                loading="lazy"
+              />
+              <div className="journey-arrival-photo-label">ליבהבר — הבית החדש, ישראל</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CandleSection
+        heading="המסע הסתיים — הבית התחיל"
+        text="בתיה ואברהם הגיעו לארץ וייסדו כאן בית חם ומשפחה. הדליקו נר לזכרם."
+      />
+    </>
+  )
+}
