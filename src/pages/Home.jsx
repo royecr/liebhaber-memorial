@@ -35,7 +35,6 @@ const CornerLeaf = ({ corner = 'tl' }) => (
   </svg>
 )
 
-/* Photo strip for gallery preview */
 const GALLERY_STRIP = [
   { file: 'batya-as-girl.jpeg',      caption: 'בתיה בנעוריה' },
   { file: 'family-portrait.jpeg',    caption: 'מהאלבום המשפחתי' },
@@ -48,9 +47,6 @@ const GALLERY_STRIP = [
 export default function Home() {
   return (
     <>
-      {/* ═══════════════════════════════════
-          HERO — 2-column layout
-          ═══════════════════════════════════ */}
       <section className="home-hero" aria-label="ברוכים הבאים">
         <div className="hero-bg-ornament hero-bg-ornament--tr" aria-hidden="true">
           <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +63,6 @@ export default function Home() {
         </div>
 
         <div className="container home-hero-inner">
-          {/* LEFT: Real family photo */}
           <div className="home-hero-image-col fade-up">
             <div className="hero-photo-frame">
               <CornerLeaf corner="tl" />
@@ -86,7 +81,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT: Text content */}
           <div className="home-hero-text-col fade-up">
             <div className="hero-eyebrow">
               <LeafOrnament />
@@ -120,12 +114,143 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════
-          MAIN QUOTE
-          ═══════════════════════════════════ */}
       <section className="home-quote-section" aria-label="ציטוט בתיה">
         <div className="container home-quote-inner">
           <DividerLeaves />
           <blockquote className="home-main-quote">
             <div className="home-quote-mark" aria-hidden="true">"</div>
-            <p className="home-quote-t
+            <p className="home-quote-text">{SITE.mainQuote}</p>
+            <footer className="home-quote-author">— {SITE.mainQuoteAuthor}</footer>
+          </blockquote>
+          <DividerLeaves />
+        </div>
+      </section>
+
+      <section className="home-persons-section" aria-label="בתיה ואברהם">
+        <div className="container">
+          <div className="home-persons-grid">
+            <article className="person-card card fade-up">
+              <div className="person-card-photo-wrap">
+                <img
+                  src={`${PHOTO_BASE}batya-portrait.jpeg`}
+                  alt="בתיה ליבהבר"
+                  className="person-card-photo"
+                  loading="lazy"
+                />
+                <div className="person-card-photo-overlay">
+                  <span className="person-card-dates">1929 – 2024</span>
+                </div>
+              </div>
+              <div className="person-card-body">
+                <h2 className="person-card-name">בתיה ליבהבר</h2>
+                <p className="person-card-text">{HOME.batyaCard.text}</p>
+                <Link to="/batya" className="person-card-link">קראו את סיפורה ←</Link>
+              </div>
+            </article>
+
+            <article className="person-card card fade-up">
+              <div className="person-card-photo-wrap">
+                <img
+                  src={`${PHOTO_BASE}family-portrait.jpeg`}
+                  alt="אברהם ליבהבר"
+                  className="person-card-photo"
+                  loading="lazy"
+                />
+                <div className="person-card-photo-overlay">
+                  <span className="person-card-dates">1919 – 2008</span>
+                </div>
+              </div>
+              <div className="person-card-body">
+                <h2 className="person-card-name">אברהם ליבהבר</h2>
+                <p className="person-card-text">{HOME.avrahamCard.text}</p>
+                <Link to="/avraham" className="person-card-link">קראו את סיפורו ←</Link>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-stats-section" aria-label="המשפחה">
+        <div className="container">
+          <div className="home-stats-header">
+            <LeafOrnament />
+            <h2 className="home-stats-title">המשפחה שהקימו</h2>
+            <LeafOrnament />
+          </div>
+          <div className="home-stats-grid">
+            {HOME.familyStats.map((stat, i) => (
+              <div key={i} className="home-stat-item">
+                <span className="home-stat-icon" aria-hidden="true">{stat.icon}</span>
+                <span className="home-stat-number">{stat.number}</span>
+                <span className="home-stat-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+          <p className="home-stats-sub">מווילנה וורשה — לישראל ולמשפחה גדולה ושמחה</p>
+          <Link to="/family" className="btn-outline home-stats-btn">הכירו את המשפחה</Link>
+        </div>
+      </section>
+
+      <section className="home-gallery-section" aria-label="תמונות מהאלבום">
+        <div className="container">
+          <div className="home-gallery-header">
+            <h2 className="section-title">מהאלבום המשפחתי</h2>
+            <p className="section-subtitle">תמונות נדירות שנשמרו לאורך הדורות</p>
+          </div>
+          <div className="home-gallery-strip">
+            {GALLERY_STRIP.map((item, i) => (
+              <Link key={i} to="/gallery" className="home-gallery-thumb" aria-label={item.caption}>
+                <img
+                  src={`${PHOTO_BASE}${item.file}`}
+                  alt={item.caption}
+                  loading="lazy"
+                />
+                <div className="home-gallery-thumb-caption">{item.caption}</div>
+              </Link>
+            ))}
+          </div>
+          <div className="home-gallery-cta">
+            <Link to="/gallery" className="btn-outline">לגלריה המלאה</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-journey-section" aria-label="המסע לארץ">
+        <div className="container home-journey-inner">
+          <div className="home-journey-text">
+            <div className="section-ornament"><span className="section-ornament-icon">⛴️</span></div>
+            <h2 className="section-title">המסע לארץ ישראל</h2>
+            <p className="home-journey-desc">
+              בשנת 1958 יצאו בתיה ואברהם מאירופה — באוניה, לא במטוס.
+              בתיה רצתה "לראות את העולם". עברו בוונציה, הגיעו לנמל חיפה ב-25 במרץ 1958.
+            </p>
+            <Link to="/journey" className="btn-primary">קראו את סיפור המסע</Link>
+          </div>
+          <div className="home-journey-map">
+            <div className="home-journey-route">
+              {['וילנה', 'ורשה', 'שצ׳צ׳ין', 'ונציה', 'חיפה'].map((city, i, arr) => (
+                <div key={i} className="home-route-step">
+                  <span className="home-route-city">{city}</span>
+                  {i < arr.length - 1 && <span className="home-route-arrow" aria-hidden="true">←</span>}
+                </div>
+              ))}
+            </div>
+            <div className="home-journey-photo-wrap">
+              <img
+                src={`${PHOTO_BASE}family-old.jpeg`}
+                alt="תמונה היסטורית של המשפחה"
+                className="home-journey-photo"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CandleSection
+        heading="הדליקו נר לזכרם"
+        text={`"${SITE.mainQuote}" — ${SITE.mainQuoteAuthor}`}
+      />
+    </>
+  )
+}
