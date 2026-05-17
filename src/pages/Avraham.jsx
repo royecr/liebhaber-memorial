@@ -4,7 +4,6 @@ import './PersonPage.css'
 
 const PHOTO_BASE = 'https://bsvmwnlyxetyjdppejmh.supabase.co/storage/v1/object/public/photos/'
 
-/* Photo gallery for Avraham's page */
 const AVRAHAM_PHOTOS = [
   { file: 'avraham-sailor.jpeg',        caption: 'אברהם — ימאי' },
   { file: 'batya-avraham-family.jpeg',  caption: 'אברהם עם בתיה ובנותיהן' },
@@ -14,7 +13,6 @@ const AVRAHAM_PHOTOS = [
 export default function Avraham() {
   return (
     <>
-      {/* Hero */}
       <section className="page-hero" aria-label="כותרת עמוד אברהם">
         <div className="container page-hero-inner">
           <div className="page-hero-text fade-up">
@@ -27,7 +25,6 @@ export default function Avraham() {
             <p className="page-hero-subtitle">{AVRAHAM.heroSubtitle}</p>
           </div>
 
-          {/* Real portrait photo */}
           <div className="page-hero-media fade-up">
             <div className="person-portrait-frame">
               <img
@@ -42,7 +39,6 @@ export default function Avraham() {
         </div>
       </section>
 
-      {/* Intro */}
       <section className="person-intro-section" aria-label="הקדמה">
         <div className="container person-intro-inner">
           <div className="person-intro-text">
@@ -57,7 +53,6 @@ export default function Avraham() {
         </div>
       </section>
 
-      {/* Photo gallery strip */}
       <section className="person-photos-section" aria-label="תמונות אברהם">
         <div className="container">
           <h2 className="section-title">תמונות מחיי אברהם</h2>
@@ -76,5 +71,38 @@ export default function Avraham() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="person-timeline-section" aria-label="תחנות בחיי�
+      <section className="person-timeline-section" aria-label="תחנות בחייו של אברהם">
+        <div className="container">
+          <div className="section-ornament"><span className="section-ornament-icon">✦</span></div>
+          <h2 className="section-title">תחנות בחייו</h2>
+          <div className="timeline" role="list">
+            {AVRAHAM.milestones.map((m, i) => (
+              <article
+                key={i}
+                className={`timeline-item timeline-item--${m.side}${m.warning ? ' timeline-item--sensitive' : ''}`}
+                role="listitem"
+              >
+                <div className="timeline-connector" aria-hidden="true">
+                  <span className="timeline-dot">{m.number}</span>
+                </div>
+                <div className="timeline-card card">
+                  <div className="timeline-date">{m.date}</div>
+                  <h3 className="timeline-title">{m.title}</h3>
+                  <p className="timeline-text">{m.text}</p>
+                  {m.warning && (
+                    <p className="timeline-sensitive-note">תוכן רגיש — שואה ואובדן</p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CandleSection
+        heading="הדליקו נר לזכר אברהם"
+        text="אברהם ברח לבדו, שרד בגבורה, ובחר לבנות חיים של נתינה ואהבה. הדליקו נר לזכרו."
+      />
+    </>
+  )
+}
