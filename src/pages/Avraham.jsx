@@ -2,6 +2,15 @@ import { AVRAHAM } from '../content/content.js'
 import CandleSection from '../components/CandleSection.jsx'
 import './PersonPage.css'
 
+const PHOTO_BASE = 'https://bsvmwnlyxetyjdppejmh.supabase.co/storage/v1/object/public/photos/'
+
+/* Photo gallery for Avraham's page */
+const AVRAHAM_PHOTOS = [
+  { file: 'avraham-sailor.jpeg',        caption: 'אברהם — ימאי' },
+  { file: 'batya-avraham-family.jpeg',  caption: 'אברהם עם בתיה ובנותיהן' },
+  { file: 'family-gathering.jpeg',      caption: 'מפגש משפחתי' },
+]
+
 export default function Avraham() {
   return (
     <>
@@ -17,9 +26,17 @@ export default function Avraham() {
             ))}</h1>
             <p className="page-hero-subtitle">{AVRAHAM.heroSubtitle}</p>
           </div>
+
+          {/* Real portrait photo */}
           <div className="page-hero-media fade-up">
-            <div className="img-placeholder page-hero-img photo-frame">
-              <span aria-hidden="true">👨</span>
+            <div className="person-portrait-frame">
+              <img
+                src={`${PHOTO_BASE}avraham-portrait.jpeg`}
+                alt="אברהם ליבהבר — דיוקן"
+                className="person-portrait-img"
+                loading="eager"
+              />
+              <div className="person-portrait-caption">אברהם ליבהבר · 1919–2008</div>
             </div>
           </div>
         </div>
@@ -40,39 +57,24 @@ export default function Avraham() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="person-timeline-section" aria-label="תחנות בחייו של אברהם">
+      {/* Photo gallery strip */}
+      <section className="person-photos-section" aria-label="תמונות אברהם">
         <div className="container">
-          <div className="section-ornament"><span className="section-ornament-icon">✦</span></div>
-          <h2 className="section-title">תחנות בחייו</h2>
-          <div className="timeline" role="list">
-            {AVRAHAM.milestones.map((m, i) => (
-              <article
-                key={i}
-                className={`timeline-item timeline-item--${m.side}${m.warning ? ' timeline-item--sensitive' : ''}`}
-                role="listitem"
-              >
-                <div className="timeline-connector" aria-hidden="true">
-                  <span className="timeline-dot">{m.number}</span>
-                </div>
-                <div className="timeline-card card">
-                  <div className="timeline-date">{m.date}</div>
-                  <h3 className="timeline-title">{m.title}</h3>
-                  <p className="timeline-text">{m.text}</p>
-                  {m.warning && (
-                    <p className="timeline-sensitive-note">תוכן רגיש — שואה ואובדן</p>
-                  )}
-                </div>
-              </article>
+          <h2 className="section-title">תמונות מחיי אברהם</h2>
+          <div className="person-photos-strip person-photos-strip--sm">
+            {AVRAHAM_PHOTOS.map((photo, i) => (
+              <div key={i} className="person-photo-card">
+                <img
+                  src={`${PHOTO_BASE}${photo.file}`}
+                  alt={photo.caption}
+                  loading="lazy"
+                />
+                <div className="person-photo-card-caption">{photo.caption}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CandleSection
-        heading="הדליקו נר לזכר אברהם"
-        text="אברהם ברח לבדו, שרד בגבורה, ובחר לבנות חיים של נתינה ואהבה. הדליקו נר לזכרו."
-      />
-    </>
-  )
-}
+      {/* Timeline */}
+      <section className="person-timeline-section" aria-label="תחנות בחיי�
