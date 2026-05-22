@@ -152,9 +152,10 @@
     right: 22px;
     transform: none;
   }
-
   .ms-item,
   .ms-item--right,
   .ms-item--left,
   .ms-item--both {
-    grid-template-colu
+    grid-template-columns: 1fr;
+  }
+}
